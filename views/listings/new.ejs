@@ -1,0 +1,48 @@
+<% layout("/layout/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br>
+            <h3>New Listings</h3>
+            <form method="POST" action="/listings" novalidate class="needs-validation">
+                
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title:</label><br>
+                    <input type="text" name="listing[title]" id="title" placeholder="Title of the listing" class="form-control" required> 
+                    <div class="valid-feedback">Title look good</div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label><br>
+                <input type="text" name = "listing[description]" id="description" placeholder="Description of the listing" class="form-control" required>
+          
+                </div>
+                <div class="mb-3"><label for="location" class="form-label">Location:</label><br>
+                    <input type="text" name="listing[location]" id="location" placeholder="Location of the listing" class="form-control"required>  
+                    <div class="invalid-feedback">Location should be valid</div>  
+                   </div>
+                   <div class="row">
+                    <div class="mb-3 col-md-4"> <label for="price" class="form-label">Price:</label><br>
+                        <input  name="listing[price]" id="price" placeholder="Price of the listing" class="form-control"required>
+                        <div class="invalid-feedback">Enter correct price</div>
+                       </div>
+                       <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country:</label><br>
+                        <input type="text" name="listing[country]" id="country" placeholder="Country of the listing" class="form-control"required>
+                        <div class="invalid-feedback">country should be valid</div>
+
+               </div>
+                   </div>
+                <div class="mb-3 "> <label for="image" class="form-label">Image:</label><br>
+                    <input type="text" name="listing[image]" id="image" placeholder="Image of the listing" class="form-control">
+              </div>
+                <button class="btn btn-dark add-btn">ADD Listings</button>
+                <br><br>
+
+        
+            </form>
+        </div>
+
+    </div>
+   
+</body>
+
