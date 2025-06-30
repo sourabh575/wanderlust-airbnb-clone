@@ -22,16 +22,29 @@ Wanderlust is a full-stack web application that allows users to discover, list, 
 - **Maps**: Mapbox
 - **Other Tools**: EJS templating, Express Session
 
-## Screenshots
+## 📸 Screenshots
 
-Add the following screenshots to showcase your application (create a `screenshots` folder in your project root):
+### Homepage
+![Homepage](https://github.com/sourabh575/wanderlust-airbnb-clone/blob/main/Screenshot%202025-06-30%20154548.png?raw=true)
 
-1. `homepage.png` - Landing page with featured listings
-2. `listings.png` - All listings page with search functionality
-3. `listing-detail.png` - Individual listing page with details and reviews
-4. `user-profile.png` - User dashboard/profile page
-5. `add-listing.png` - Form to create new listing
-6. `responsive.png` - Mobile responsive views
+
+### Listing Detail
+![Listing Detail](https://github.com/sourabh575/wanderlust-airbnb-clone/blob/main/Screenshot%202025-06-30%20172512.png?raw=true)
+
+### Add New Listing
+![Add Listing](https://github.com/sourabh575/wanderlust-airbnb-clone/blob/main/Screenshot%202025-06-30%20154707.png?raw=true)
+
+### edit listing
+![edit listing](https://github.com/sourabh575/wanderlust-airbnb-clone/blob/main/Screenshot%202025-06-30%20154720.png?raw=true)
+
+### review
+![review](![image](https://github.com/user-attachments/assets/49d08feb-2077-4cde-ae60-3582bddca93a)
+
+### signup
+![signup](https://github.com/sourabh575/wanderlust-airbnb-clone/blob/main/Screenshot%202025-06-30%20172449.png?raw=true)
+
+### Login
+![Login](https://github.com/sourabh575/wanderlust-airbnb-clone/blob/main/Screenshot%202025-06-30%20154638.png?raw=true)
 
 ## Setup and Installation
 
@@ -46,24 +59,14 @@ Add the following screenshots to showcase your application (create a `screenshot
    npm install
    ```
 
-3. Create a `.env` file in the root directory with the following variables:
-   ```
-   MONGODB_URL=your_mongodb_connection_string
-   CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-   CLOUDINARY_API_KEY=your_cloudinary_api_key
-   CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-   MAPBOX_TOKEN=your_mapbox_token
-   SECRET=your_session_secret
-   ```
-
-4. Initialize the database:
+3. Initialize the database:
    ```bash
    node init/index.js
    ```
 
-5. Start the development server:
+4. Start the development server:
    ```bash
-   npm run dev
+   nodemon app.js
    ```
 
 ## Project Structure
