@@ -50,7 +50,7 @@ Wanderlust is a full-stack web application that allows users to discover, list, 
 
 1. Clone the repository:
    ```bash
-   git clone <your-repo-url>
+   git clone <https://github.com/sourabh575/wanderlust-airbnb-clone>
    cd wanderlust
    ```
 
