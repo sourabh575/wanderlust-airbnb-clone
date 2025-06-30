@@ -1,44 +1,31 @@
-  const express = require('express');
+const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const passport = require('passport');
-const LocalStartegy = require('passport-local');
+const { saveRedirectUrl } = require('../middleware');
+const userController = require('../controllers/user');
 
+// GET signup page
+router.get("/signup", userController.renderSignupForm);
 
+// POST signup logic
+router.post("/signup", userController.signup);
 
-router.get("/signup",(req,res)=>{
-    res.render("users/signup.ejs");
-});
+// GET login page
+router.get("/login", userController.renderLoginForm);
 
-router.post("/signup",async(req,res)=>{
-   try{
-     let {username,email,password} = req.body;
-    const newUser = new User({email,username});
-    const registreduser = await User.register(newUser,password);
-    console.log(registreduser);
-    req.flash("success","you have register successfully");
-    res.redirect("/listings");
-   }
-   catch(e){
-    req.flash("error",e.message);
-    res.redirect("/signup");
-   }
-});
+// POST login logic
+router.post(
+  "/login",
+  saveRedirectUrl,
+  passport.authenticate("local", {
+    failureRedirect: '/login',
+    failureFlash: true,
+  }),
+  userController.login
+);
 
-router.get("/login",(req,res)=>{
-    res.render("users/login.ejs");
-})
-
-router.post("/login",
-    passport.authenticate("local",{failureRedirect:'/login'}),
-     async(req,res)=>
-    {
-        req.flash("success","you are logged in");
-        res.redirect("/listings");
-
-})
-
-      
+// GET logout
+router.get("/logout", userController.logout);
 
 module.exports = router;
-

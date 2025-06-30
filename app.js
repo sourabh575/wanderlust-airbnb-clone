@@ -39,7 +39,7 @@ async function main() {
 const sessionOptions = {
   secret :"my2123",
   resave:false,
-  saveUnitialized:true,
+ saveUninitialized: true, 
   cookie:{
     expires:Date.now() + 7 * 24 * 60 * 60 * 1000,
     maxAge: 7 * 24 * 60 * 60 * 1000,
@@ -47,9 +47,9 @@ const sessionOptions = {
   }
 }
 
-app.get("/", (req, res) => {
-    res.send("root is working");
-  });
+// app.get("/", (req, res) => {
+//     res.send("root is working");
+//   });
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -64,19 +64,20 @@ passport.deserializeUser(User.deserializeUser());//it remove user related inform
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
     //console.log(success);
   next();
 });
 
-app.get("/demo", async(req,res)=>{
-  const fakeuser = new User({
-    email:"sourabh@gmailcom",
-    username:"sourabh",
-  });
+// app.get("/demo", async(req,res)=>{
+//   const fakeuser = new User({
+//     email:"sourabh@gmailcom",
+//     username:"sourabh",
+//   });
   
- const registeruser =  await User.register(fakeuser,"hello");
-  res.send(registeruser);
-})
+//  const registeruser =  await User.register(fakeuser,"hello");
+//   res.send(registeruser);
+// })
 
   app.use("/listings",listings);
   app.use("/listings/:id/reviews",reviews);
@@ -95,6 +96,7 @@ app.get("/demo", async(req,res)=>{
     //       console.log("sample was saved");
     //       res.send("succesfully saved");  
     // });
+    
 
 app.all("*",(req,res,next)=>{
   next(new ExpressError(404,"page Not found"));
